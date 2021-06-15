@@ -6,25 +6,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%	
-	request.setCharacterEncoding("utf-8");
+<%
+request.setCharacterEncoding("utf-8");
 	String idx = request.getParameter("idx");
 	
 	String path = getServletContext().getRealPath("/upload");
 	
 	MultipartRequest mr =
 		new MultipartRequest( 				
-			request, 						//요청정보
-			path, 	 						//저장위치
-			100*1024*1024, 					//업로드 용량 100메가
-			"utf-8",						//인코딩
-			new DefaultFileRenamePolicy()); //파일 이름 중복 처리.
-			
+	request, 						//요청정보
+	path, 	 						//저장위치
+	100*1024*1024, 					//업로드 용량 100메가
+	"utf-8",						//인코딩
+	new DefaultFileRenamePolicy()); //파일 이름 중복 처리.
+	
 	VO vo = DAO.getInstance().getPage(idx);
 		
 	request.setAttribute("vo", vo);
 	//수정과 삭제를 위해, VO를 session에 담아두거나, (필요할때마다) idx와 pw를 파라미터로 넘겨주어야한다.
-	
 %>
 <!DOCTYPE html>
 <html>

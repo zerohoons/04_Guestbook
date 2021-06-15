@@ -11,13 +11,13 @@ try{
 	String path = request.getServletContext().getRealPath("/upload");
 	MultipartRequest mr
 	= new MultipartRequest(
-			request,
-			path,
-			100*1024*1024,
-			"utf-8",
-			new DefaultFileRenamePolicy()
-			);
-	VO vo = new VO();
+	request,
+	path,
+	100*1024*1024,
+	"utf-8",
+	new DefaultFileRenamePolicy()
+	);
+	BVO vo = new BVO();
 	vo.setName(mr.getParameter("name"));
 	vo.setPw(mr.getParameter("pw"));
 	vo.setTitle(mr.getParameter("tilte"));
