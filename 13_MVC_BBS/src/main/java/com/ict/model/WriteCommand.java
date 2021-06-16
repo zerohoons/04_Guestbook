@@ -6,7 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 public class WriteCommand implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		String cPage=request.getParameter("cPage");
+		request.setAttribute("cPage", cPage);
 		return "/view/write.jsp";
 	}
 }

@@ -14,6 +14,7 @@ public class UpdateOkCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			String cPage = request.getParameter("cPage");
 			String path = request.getServletContext().getRealPath("/upload");
 			MultipartRequest mr =
 					new MultipartRequest(request, path, 100*1024*1024, "utf-8", new DefaultFileRenamePolicy());
@@ -49,7 +50,7 @@ public class UpdateOkCommand implements Command{
 					}
 				} catch (Exception e) {
 				}
-				return "MyController?cmd=onelist&b_idx="+bvo.getB_idx();
+				return "MyController?cmd=onelist&b_idx="+bvo.getB_idx()+"&cPage="+cPage;
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -44,7 +44,7 @@
 </style>
 <script type="text/javascript">
 function list_go(f){
-	f.action="${pageContext.request.contextPath}/MyController?cmd=list";
+	f.action="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${cPage}";
 	f.submit();
 }
 function send_go(f){
@@ -100,6 +100,7 @@ function send_go(f){
 						<input type="button" value="보내기" onclick="send_go(this.form)">
 						<input type="reset" value="다시">
 						<input type="button" value="목록" onclick="list_go(this.form)"/>
+						<input type="hidden" value="${cPage}" name="cPage">
 					</td>
 				</tr>
 			</tbody>

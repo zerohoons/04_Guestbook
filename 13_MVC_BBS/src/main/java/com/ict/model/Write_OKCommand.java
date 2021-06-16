@@ -12,6 +12,7 @@ public class Write_OKCommand implements Command{
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			String cPage = request.getParameter("cPage");
 			String path = request.getServletContext().getRealPath("/upload");
 			MultipartRequest mr = 
 					new MultipartRequest(request, path, 100*1024*1024, "utf-8", new DefaultFileRenamePolicy());
@@ -31,7 +32,7 @@ public class Write_OKCommand implements Command{
 			
 			int result = DAO.getInsert(bvo);
 			if(result > 0) {
-				return "MyController?cmd=list";
+				return "MyController?cmd=list&cPage="+cPage;
 			}
 			
 		} catch (Exception e) {

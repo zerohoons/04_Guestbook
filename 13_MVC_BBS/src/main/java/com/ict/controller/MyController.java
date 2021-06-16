@@ -21,9 +21,6 @@ import com.ict.model.UpdateOkCommand;
 import com.ict.model.WriteCommand;
 import com.ict.model.Write_OKCommand;
 
-/**
- * Servlet implementation class Mycon
- */
 @WebServlet("/MyController")
 public class MyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

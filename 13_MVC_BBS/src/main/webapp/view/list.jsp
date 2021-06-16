@@ -103,8 +103,9 @@ function write_go(){
 					<c:otherwise>
 						<c:forEach var="k" items="${list}" varStatus="vs">
 							<tr>
+								<td>${pvo.totalRecord-((pvo.nowPage-1)*pvo.numPerPage+vs.index)}</td>
 								<td>${vs.count}</td>								
-								<td><a href="${pageContext.request.contextPath}/MyController?cmd=onelist&b_idx=${k.b_idx}">${k.subject}</a></td>								
+								<td><a href="${pageContext.request.contextPath}/MyController?cmd=onelist&b_idx=${k.b_idx}&cPage=${pvo.nowPage}">${k.subject}</a></td>								
 								<td>${k.writer}</td>								
 								<td>${k.write_date.substring(0,10)}</td>								
 								<td>${k.hit}</td>								
@@ -120,10 +121,34 @@ function write_go(){
 					<td colspan="4">
 						<ol class="paging">
 							<!-- 이전 -->
-						    
+						    <c:choose>
+						    	<c:when test="${pvo.beginBlock <= pvo.pagePerBlock }">
+						    		<li class="disable">이전으로</li>
+						    	</c:when>
+						    	<c:otherwise>
+						    		<li><a href = "${pageContext.request.contextPath}/MyController?cmd=list&cPage=${pvo.beginBlock-pvo.pagePerBlock}">이전으로</a></li>						    	</c:otherwise>
+						    </c:choose>
 						    <!-- 블록안에 들어간 페이지번호들 -->
-							
+							<c:forEach begin="${pvo.beginBlock }" end = "${pvo.endBlock }" step="1" var="k">
+								<!-- 현재페이지와 현제페이지가 아닌 것을 구분 -->
+								<c:choose>
+									<c:when test="${k==pvo.nowPage }">
+										<li class = "now">${k}</li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${k}">${k}</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 							<!-- 다음 -->
+						    <c:choose>
+						    	<c:when test="${pvo.endBlock >= pvo.totalPage}">
+						    		<li class="disable">다음으로</li>
+						    	</c:when>
+						    	<c:otherwise>
+						    		<li><a href = "${pageContext.request.contextPath}/MyController?cmd=list&cPage=${pvo.beginBlock+pvo.pagePerBlock}">다음으로</a></li>
+						    	</c:otherwise>
+						    </c:choose>
 							
 						</ol>
 					</td>

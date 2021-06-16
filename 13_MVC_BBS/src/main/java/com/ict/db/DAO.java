@@ -1,7 +1,9 @@
 package com.ict.db;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -15,10 +17,19 @@ public class DAO {
 		return ss;
 	}
 	
+	public static int getCount() {
+		int result =0;
+		result = getSession().selectOne("count");
+		return result;
+	}
 	
-	public static List<BVO> getList() {
-		List<BVO> list = new ArrayList<BVO>();
-		list = getSession().selectList("list");
+	public static List<BVO> getList(int begin, int end) {
+		List<BVO> list = null;
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("begin", begin);
+		map.put("end", end);
+		
+		list = getSession().selectList("list",map);
 		return list;
 	}
 
@@ -69,4 +80,12 @@ public class DAO {
 		ss.commit();
 		return result;
 	}
+	
+	public static int getComm_Delete(String c_idx) {
+		int result = 0;
+		result = getSession().insert("comm_del",c_idx);
+		ss.commit();
+		return result;
+	}
+
 }

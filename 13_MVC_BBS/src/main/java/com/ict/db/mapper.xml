@@ -5,8 +5,23 @@
 <mapper namespace="bbs">
 
 <!-- 페이징 기법을 이용하게 될 때, 변경되어진다. -->
-<select id="list" resultType="com.ict.db.BVO" >
-	select * from bbs_t order by b_idx desc
+<!-- 전체 게시물의 수 -->
+<select id="count" resultType="int">
+	select count(*) from bbs_t
+</select>
+
+<select id="list" resultType="com.ict.db.BVO" parameterType="Map" >
+	<!-- select * from bbs_t order by b_idx desc -->
+	
+	<!-- 한페이지에서 사용할 행을 추출하는 쿼리 -->
+	<!-- ParameterType 은 VO에 존재하지 않고, 인자가 두개 이상이기 때문에 Map or VO 여기에서는 MAP을 활용
+		 why? > VO에 들어있는 값이 아니기 때문에 -->
+	SELECT * FROM 
+    	(select rownum r_num, a.* from 
+    	    (select * from bbs_t order by b_idx)
+    	a) 
+	where r_num between #{begin} and #{end}
+
 </select>
 
 <insert id="insert" parameterType="com.ict.db.BVO">
@@ -36,4 +51,9 @@
 <insert id="comm_ins" parameterType="com.ict.db.CVO">
 	insert into comment_t values(comment_t_seq.nextval, null,#{content},null,sysdate,#{b_idx})
 </insert>
+
+<delete id="comm_del" parameterType="String">
+	delete from comment_t where c_idx = #{c_idx}
+</delete>
+
 </mapper>

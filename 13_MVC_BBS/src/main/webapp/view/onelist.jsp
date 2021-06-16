@@ -51,16 +51,16 @@
 </style>
 <script type="text/javascript">
 function list_go(f){
-	f.action="${pageContext.request.contextPath}/MyController?cmd=list";
+	f.action="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${cPage}";
 	f.submit();
 }
 function update_go(f){
 	
-	f.action="${pageContext.request.contextPath}/MyController?cmd=update";
+	f.action="${pageContext.request.contextPath}/MyController?cmd=update&cPage=${cPage}";
 	f.submit();
 }
 function delete_go(f){
-	f.action="${pageContext.request.contextPath}/MyController?cmd=delete";
+	f.action="${pageContext.request.contextPath}/MyController?cmd=delete&cPage=${cPage}";
 	f.submit();
 }
 function comm_go(f) {
@@ -135,6 +135,8 @@ function comm_del(f) {
 							<tr>
 								<td><textarea rows="4" cols="70" name="content" readonly>${k.content }</textarea></td>
 								<td><input style="height: 70px;" type="button" value="댓글 삭제" onclick="comm_del(this.form)"> </td>
+								<input type="hidden" name="c_idx" value="${k.c_idx }"> <!-- 삭제용 -->
+								<input type="hidden" name="b_idx" value="${k.b_idx }"> <!-- 삭제 후 이동 -->
 							</tr>
 						</tbody>
 					</table>

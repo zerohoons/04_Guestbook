@@ -116,6 +116,7 @@ function edit_ok(f){
 						<input type="button" value="수정" onclick="edit_ok(this.form)">
 						<input type="reset" value="다시">
 						<input type="button" value="목록" onclick="list_go(this.form)"/>
+						<input type="hidden" value="${cPage}" name="cPage">
 					</td>
 				</tr>
 			</tbody>
