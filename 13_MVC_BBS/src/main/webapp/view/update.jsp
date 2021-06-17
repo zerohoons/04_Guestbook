@@ -77,17 +77,17 @@ function edit_ok(f){
 			<tbody>
 				<tr>
 					<th>제목:</th>
-					<td><input type="text" name="subject" size="45" value="${bvo.subject }"></td>
+					<td><input type="text" name="subject" size="45" value="${vo.subject }"></td>
 				</tr>
 				<tr>
 					<th>이름:</th>
-					<td><input type="text" name="writer" size="12" value="${bvo.writer }"></td>
+					<td><input type="text" name="writer" size="12" value="${vo.writer }"></td>
 				</tr>
 				<tr>
 					<th>내용:</th>
 					<td>
 					<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
-					<textarea name="content" cols="50" rows="8"></textarea>${bvo.content }</td>
+					<textarea name="content" cols="50" rows="8"></textarea>${vo.content }</td>
 					<script type="text/javascript">
 						CKEDITOR.replace('content');
 					</script>
@@ -96,13 +96,13 @@ function edit_ok(f){
 					<th>첨부파일:</th>
 					<td>
 						<c:choose>
-							<c:when test="${empty bvo.file_name }">
+							<c:when test="${empty vo.file_name }">
 								<input type="file" name="file_name"> 이전 첨부된 파일 없음 
 								<input type="hidden" name="old_file_name" value="">  									
 							</c:when>
 							<c:otherwise>
-								<input type="file" name="file_name"> 기존 파일(${bvo.file_name})
-								<input type="hidden" name="old_file_name" value = "${bvo.file_name}">
+								<input type="file" name="file_name"> 기존 파일(${vo.file_name})
+								<input type="hidden" name="old_file_name" value = "${vo.file_name}">
 							</c:otherwise>
 						</c:choose>
 					</td>
