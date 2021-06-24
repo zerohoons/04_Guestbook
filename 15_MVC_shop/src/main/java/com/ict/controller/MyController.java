@@ -10,10 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ict.model.AddCartCommand;
+import com.ict.model.AdminCommand;
 import com.ict.model.Command;
 import com.ict.model.ListCommand;
+import com.ict.model.LogOutCommand;
 import com.ict.model.OneListCommand;
+import com.ict.model.Product_addCommand;
 import com.ict.model.ShowCartCommand;
+import com.ict.model.getLogin;
+import com.ict.model.toLogin;
 
 /**
  * Servlet implementation class MyController
@@ -39,6 +44,16 @@ public class MyController extends HttpServlet {
 			comm = new AddCartCommand();
 		}else if(cmd.equalsIgnoreCase("showCart")) {
 			comm = new ShowCartCommand();
+		}else if(cmd.equalsIgnoreCase("login")) {
+			comm = new getLogin();
+		}else if(cmd.equalsIgnoreCase("login_ok")) {
+			comm = new toLogin();
+		}else if(cmd.equalsIgnoreCase("logout")) {
+			comm = new LogOutCommand();
+		}else if(cmd.equalsIgnoreCase("admin")) {
+			comm = new AdminCommand();
+		}else if(cmd.equalsIgnoreCase("product_add")) {
+			comm = new Product_addCommand();
 		}
 		String path = comm.exec(request, response);
 		request.getRequestDispatcher(path).forward(request, response);

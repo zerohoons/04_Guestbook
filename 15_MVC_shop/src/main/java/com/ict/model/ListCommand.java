@@ -15,9 +15,10 @@ public String exec(HttpServletRequest request, HttpServletResponse response) {
 	if(category==null|| category=="") {
 		category="ele002";
 	}
+	
 	List<VO> list = DAO.getList(category);
 	request.setAttribute("list", list);
-
+	
 	return "view/product_list.jsp";
 }
 }

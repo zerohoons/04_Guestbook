@@ -46,6 +46,14 @@ table, th, td {
 				style="border: 1 solid black; cursor: pointer"
 				onclick="javascript:location.href='delProduct.jsp?p_num='">
 			</td>
+			<td>
+				<!-- 수량 조정 폼 --> <!------------------>
+			</td>
+			<td></td>
+			<td><input type="button" value="삭제"
+				style="border: 1 solid black; cursor: pointer"
+				onclick="javascript:location.href='delProduct.jsp?p_num='">
+			</td>
 		</tr>
 
 		<tr align="center">

@@ -2,6 +2,7 @@ package com.ict.db;
 
 public class VO {
 	private String idx, category, p_num,p_name, p_company, p_image_s, p_image_l, p_content, p_date;
+
 	public String getP_name() {
 		return p_name;
 	}

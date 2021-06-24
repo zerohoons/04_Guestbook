@@ -29,4 +29,18 @@ public class DAO {
 		vo = getSession().selectOne("onelist", idx);
 		return vo;
 	}
+
+	public static UVO getLogin(UVO uvo2) {
+		UVO uvo =null;
+		uvo = getSession().selectOne("login", uvo2);		
+		return uvo;
+	}
+
+	public static int getProductInsert(VO vo) {
+		int result = 0 ;
+		System.out.println(vo.getCategory());
+		result = getSession().insert("product_add", vo);
+		System.out.println("result ; " + result);
+		return result;
+	}
 }

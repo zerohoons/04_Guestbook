@@ -13,7 +13,7 @@ public class OneListCommand implements Command {
 		String idx = request.getParameter("idx");
 		VO vo = DAO.getOneList(idx);
 		request.setAttribute("vo", vo);
-		return "/view/product_content.jsp";
+		return "view/product_content.jsp";
 	}
 
 }
