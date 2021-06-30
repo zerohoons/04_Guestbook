@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product>
+		<name>흰 우유</name>
+		<price>950</price>
+	</product>
+	<product>
+		<name>딸기 우유</name>
+		<price>950</price>
+	</product>
+	<product>
+		<name>초코 우유</name>
+		<price>950</price>
+	</product>
+	<product>
+		<name>바나나 우유</name>
+		<price>1450</price>
+	</product>
+</products>
