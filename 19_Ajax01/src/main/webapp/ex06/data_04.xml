@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+	<product price="1500">
+		<name>포카리스웨트</name>
+	</product>
+	<product price="1400">
+		<name>게토레이</name>
+	</product>
+	<product price="1100">
+		<name>암바사</name>
+	</product>
+	<product price="1200">
+		<name>밀키스</name>
+	</product>
+</products>
