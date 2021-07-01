@@ -47,7 +47,10 @@ public String exec(HttpServletRequest request, HttpServletResponse response) {
 	//6. request에 저장.
 	request.setAttribute("list", list);
 	request.setAttribute("pvo", pvo);
+<<<<<<< HEAD
 	request.setAttribute("cPage", cPage);
+=======
+>>>>>>> branch 'master' of https://github.com/zerohoons/04_Guestbook.git
 	return "/view/list.jsp";
 }
 }

@@ -21,7 +21,10 @@ public class Ans_Write_OK_Command implements Command {
 					new MultipartRequest(request, path, 100*1024*1024,"utf-8", new DefaultFileRenamePolicy());
 			String cPage = mr.getParameter("cPage");
 			
+<<<<<<< HEAD
 			//세션에 있는 VO에서 groups, step, lev를 추출해서
+=======
+>>>>>>> branch 'master' of https://github.com/zerohoons/04_Guestbook.git
 			//원글과 관련된 기본 정보 업데이트. step과 lev를 1씩 증가.
 			VO vo = (VO)request.getSession().getAttribute("vo");
 			int groups = Integer.parseInt(vo.getGroups());

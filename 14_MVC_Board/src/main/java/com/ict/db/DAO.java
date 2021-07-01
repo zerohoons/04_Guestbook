@@ -72,6 +72,7 @@ public class DAO {
 		ss.commit();
 		return result;
 	}
+<<<<<<< HEAD
 
 	public static int getUpdate(VO vo) {
 		int result = 0 ;
@@ -79,4 +80,6 @@ public class DAO {
 		ss.commit();
 		return result;
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/zerohoons/04_Guestbook.git
 }

@@ -34,7 +34,11 @@ input {
 </style>
 <script type="text/javascript">
 	function list_go(f) {
+<<<<<<< HEAD
 		f.action="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${cPage}";
+=======
+		f.action = "${pageContext.request.contextPath}/MyController?cmd=list";
+>>>>>>> branch 'master' of https://github.com/zerohoons/04_Guestbook.git
 		f.submit();
 	}
 	
